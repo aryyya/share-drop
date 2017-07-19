@@ -2,7 +2,7 @@
   "name": "share-drop",
   "version": "0.0.0",
   "author": "aryyya <arya@live.ca>",
-  "description": "A multiplatform networking file sharing app.",
+  "description": "A multi-platform network file sharing app.",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {

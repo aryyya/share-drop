@@ -1,6 +1,6 @@
 # share-drop
 
-> A multiplatform networking file sharing app.
+> A multi-platform network file sharing app.
 
 #### Build Setup
 
