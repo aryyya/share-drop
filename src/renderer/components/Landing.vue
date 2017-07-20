@@ -17,12 +17,14 @@
 
 <script>
 import About from './About'
+import Hosts from './Hosts'
 import NavBar from './NavBar'
 import Status from './Status'
 
 export default {
   components: {
     About,
+    Hosts,
     NavBar,
     Status
   },
