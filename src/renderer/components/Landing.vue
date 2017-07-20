@@ -10,6 +10,7 @@
     </div>
     <div class="landing__right-column">
       <component :is="activePage"></component>
+      <status></status>
     </div>
   </div>
 </template>
@@ -17,11 +18,13 @@
 <script>
 import About from './About'
 import NavBar from './NavBar'
+import Status from './Status'
 
 export default {
   components: {
     About,
-    NavBar
+    NavBar,
+    Status
   },
   computed: {
     activePage () {
@@ -45,6 +48,7 @@ export default {
 .landing__right-column {
   background-color: #ffffff;
   width: 480px;
+  position: relative;
 }
 .landing__header {
   background-color: #3CA1CF;

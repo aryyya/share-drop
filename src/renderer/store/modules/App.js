@@ -1,10 +1,14 @@
 const state = {
-  activePage: ''
+  activePage: '',
+  hostname: ''
 }
 
 const mutations = {
   SET_ACTIVE_PAGE (state, activePage) {
     state.activePage = activePage
+  },
+  SET_HOSTNAME (state, hostname) {
+    state.hostname = hostname
   },
   DECREMENT_MAIN_COUNTER (state) {
     state.main--
