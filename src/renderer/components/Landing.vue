@@ -9,7 +9,7 @@
       <nav-bar></nav-bar>
     </div>
     <div class="landing__right-column">
-      <component :is="activePage"></component>
+      <component class="landing__right-column-component" :is="activePage"></component>
       <status></status>
     </div>
   </div>
@@ -30,7 +30,6 @@ export default {
   },
   computed: {
     activePage () {
-      console.log(this.$store.state)
       return this.$store.state.App.activePage
     }
   }
@@ -50,6 +49,13 @@ export default {
 .landing__right-column {
   background-color: #ffffff;
   width: 480px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.landing__right-column-component {
+  height: 100%;
   position: relative;
 }
 .landing__header {

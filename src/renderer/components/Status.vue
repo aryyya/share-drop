@@ -47,10 +47,6 @@ export default {
 .status {
   background-color: #eee;
   padding: 1.5rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
