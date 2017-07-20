@@ -27,17 +27,18 @@ export default {
       this.items.forEach(item => (item.isSelected = false))
       this.selected = this.items[index]
       this.selected.isSelected = true
+      this.$store.commit('SET_ACTIVE_PAGE', this.selected.name)
     },
     quit () {
-      require('electron').remote.getCurrentWindow().close()
+      if (window.confirm('Quit ShareDrop?')) {
+        require('electron').remote.getCurrentWindow().close()
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.nav-bar__items {
-}
 .nav-bar__item {
   padding: 1.95rem;
   font-weight: 300;
