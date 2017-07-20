@@ -5,12 +5,20 @@
     </div>
     <div class="host-wrapper">
       <img class="host__image" src="src/renderer/assets/hosts-icon.svg">
-      <p class="host__text">Scanning for ShareDrop network hosts...</p>
+      <p style="font-size: 0.75rem;margin: 0;">{{ shortenText(hostname, 32) }}</p>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  mixins: require('./mixins.js'),
+  computed: {
+    hostname () {
+      return this.$store.state.App.hostname
+    }
+  }
+}
 </script>
 
 <style scoped>

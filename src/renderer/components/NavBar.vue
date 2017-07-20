@@ -34,6 +34,9 @@ export default {
         require('electron').remote.getCurrentWindow().close()
       }
     }
+  },
+  created () {
+    this.selectItem(0)
   }
 }
 </script>

@@ -17,6 +17,6 @@ new Vue({
   template: '<App/>'
 }).$mount('#app')
 
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.setVisualZoomLevelLimits(1, 1)
 webFrame.setLayoutZoomLevelLimits(0, 0)

@@ -1,7 +1,12 @@
 <template>
   <div class="status">
-    <span class="status__hostname">
-      {{ shortenText(hostname, 32) }}
+    <span class="status__hostname-wrapper">
+      <p class="status__hostname">
+        {{ shortenText(hostname, 32) }}
+      </p>
+      <p class="status__connection" :class="{'status__connection--online':isOnline}">
+        {{ isOnline ? 'online' : 'offline' }}
+      </p>
     </span>
     <label class="status__invisible-mode-wrapper">
       <input class="status__invisible-mode-checkbox" type="checkbox" name="status__invisible-mode-checkbox" v-model="invisibleMode"> 
@@ -12,9 +17,8 @@
 </template>
 
 <script>
-const os = require('os')
-
 export default {
+  mixins: require('./mixins.js'),
   data () {
     return {
       invisibleMode: false
@@ -23,22 +27,19 @@ export default {
   computed: {
     hostname () {
       return this.$store.state.App.hostname
+    },
+    isOnline () {
+      return true
     }
   },
   methods: {
     help (event) {
       event.preventDefault()
       window.alert('Enable the "hide on network" option to stay invisible to other ShareDrop users. You can still see and send files to other ShareDrop hosts on the network.')
-    },
-    shortenText (text, length) {
-      if (text.length > length) {
-        return `${text.substring(0, length)}...`
-      }
-      return text
     }
   },
   created () {
-    this.$store.commit('SET_HOSTNAME', os.hostname())
+    this.$store.commit('SET_HOSTNAME', require('os').hostname())
   }
 }
 </script>
@@ -46,12 +47,23 @@ export default {
 <style scoped>
 .status {
   background-color: #eee;
-  padding: 1.5rem;
+  padding: 0.35rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #3CA1CF;
   font-weight: 300;
+}
+.status__hostname {
+  margin-bottom: 0;
+}
+.status__connection {
+  margin-top: 0;
+  font-size: 0.85rem;
+  color: OrangeRed;
+}
+.status__connection--online {
+  color: Green;
 }
 .status__invisible-mode-wrapper {
   display: flex;
