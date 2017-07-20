@@ -27,7 +27,6 @@ export default {
   text-align: center;
 }
 .about__link {
-  text-decoration: underline;
   color: #3CA1CF;
   font-weight: 300;
 }

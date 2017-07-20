@@ -11,7 +11,7 @@
     <label class="status__invisible-mode-wrapper">
       <input class="status__invisible-mode-checkbox" type="checkbox" name="status__invisible-mode-checkbox" v-model="invisibleMode"> 
       <span class="status__invisible-mode-text" :class="{'status__invisible-mode-text--enabled': invisibleMode}">hide on network</span>
-      <img class="status__invisible-mode-help" src="src/renderer/assets/help-icon.png" @click="help">
+      <span class="status__invisible-mode-help" @click="help">?</span>
     </label>
   </div>
 </template>
@@ -27,9 +27,6 @@ export default {
   computed: {
     hostname () {
       return this.$store.state.App.hostname
-    },
-    isOnline () {
-      return true
     }
   },
   methods: {
@@ -59,18 +56,18 @@ export default {
 }
 .status__connection {
   margin-top: 0;
-  font-size: 0.85rem;
-  color: OrangeRed;
+  font-size: 0.9rem;
+  color: #DD2D4A;
 }
 .status__connection--online {
-  color: Green;
+  color: #45CB85;
 }
 .status__invisible-mode-wrapper {
   display: flex;
   align-items: center;
 }
 .status__invisible-mode-text {
-  opacity: 0.5;
+  opacity: 0.75;
   margin-left: 0.25rem;
 }
 .status__invisible-mode-text:hover {
@@ -81,9 +78,9 @@ export default {
   opacity: 1;
 }
 .status__invisible-mode-help {
-  width: 1.25rem;
-  opacity: 0.5;
+  opacity: 0.75;
   margin-left: 1.15rem;
+  text-decoration: underline;
 }
 .status__invisible-mode-help:hover {
   cursor: pointer;

@@ -1,6 +1,6 @@
 <template>
   <div class="hosts">
-    <div class="sonar">
+    <div class="sonar" v-show="isOnline">
       <div class="sonar__inner"></div>
     </div>
     <div class="host-wrapper">

@@ -3,5 +3,10 @@ module.exports = [{
     shortenText (text, length) {
       return text.length > length ? `${text.substring(0, length)}...` : text
     }
+  },
+  computed: {
+    isOnline () {
+      return true
+    }
   }
 }]
