@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="nav-bar__items" v-for="(item, index) in items">
-      <div class="nav-bar__item" :class="{'nav-bar__item--selected': item.isSelected}" @click="selectItem(index)">
+      <div class="nav-bar__item" :class="{'nav-bar__item--selected': item.isSelected}" @click="item.name === 'Quit' ? quit() : selectItem(index)">
         <img class="nav-bar__item-icon" :src="'src/renderer/assets/' + item.icon">
         <span class="nav-bar__item-name">{{ item.name }}</span>
       </div>
@@ -27,6 +27,9 @@ export default {
       this.items.forEach(item => (item.isSelected = false))
       this.selected = this.items[index]
       this.selected.isSelected = true
+    },
+    quit () {
+      require('electron').remote.getCurrentWindow().close()
     }
   }
 }
@@ -36,7 +39,7 @@ export default {
 .nav-bar__items {
 }
 .nav-bar__item {
-  padding: 1.25rem;
+  padding: 1.95rem;
   font-weight: 300;
   display: flex;
   align-items: center;
