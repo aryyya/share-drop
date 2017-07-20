@@ -31,6 +31,7 @@ export default {
   font-weight: 300;
 }
 .about__link:hover {
+  text-decoration: underline;
   cursor: pointer;
 }
 .about__copyright {
