@@ -2,6 +2,9 @@
   <div class="landing">
     <div class="landing__left-column">
       <div class="landing__header">
+        <div class="landing__header-icon-wrapper">
+          <img src="src/renderer/assets/logo-icon.svg" class="landing__header-icon">
+        </div>
         <div class="landing__title-wrapper">
           <h1 class="landing__title">ShareDrop</h1>
         </div>
@@ -56,12 +59,24 @@ export default {
 }
 .landing__header {
   background-color: #3CA1CF;
+  box-shadow: inset -4px 0 9px -7px black;
+  display: flex;
+  align-items: center;
+}
+.landing__header-icon-wrapper {
+  padding: 2.35rem 1.95rem;
+  background-color: #2388B6;
+  box-shadow: inset -2px 0 9px -7px black;
+}
+.landing__header-icon {
+  width: 1.7rem;
+}
+.landing__title-wrapper {
+  flex: 1;
 }
 .landing__title {
   font-weight: 300;
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.15rem;
   text-align: center;
-  padding: 2.5rem 0;
 }
 </style>
