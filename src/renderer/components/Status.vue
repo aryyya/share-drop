@@ -4,8 +4,8 @@
       <p class="status__hostname">
         {{ shortenText(hostname, 32) }}
       </p>
-      <p class="status__connection" :class="{'status__connection--online':isOnline}">
-        {{ isOnline ? 'online' : 'offline' }}
+      <p class="status__connection" :class="{ 'status__connection--online': isConnected }">
+        {{ isConnected ? 'online' : 'offline' }}
       </p>
     </span>
     <label class="status__invisible-mode-wrapper">

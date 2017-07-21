@@ -5,8 +5,8 @@ module.exports = [{
     }
   },
   computed: {
-    isOnline () {
-      return true
+    isConnected () {
+      return this.$store.state.App.isConnected
     }
   }
 }]

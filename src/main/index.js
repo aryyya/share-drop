@@ -1,6 +1,7 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+const ip = require('ip')
 
 /**
  * Set `__static` path to static files in production
@@ -67,3 +68,7 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
 })
  */
+
+ipcMain.on('is-connected', (event, arg) => {
+  event.sender.send('is-connected-reply', ip.address() !== '127.0.0.1')
+})

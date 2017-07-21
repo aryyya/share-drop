@@ -1,6 +1,7 @@
 const state = {
   activePage: '',
-  hostname: ''
+  hostname: '',
+  isConnected: false
 }
 
 const mutations = {
@@ -10,23 +11,12 @@ const mutations = {
   SET_HOSTNAME (state, hostname) {
     state.hostname = hostname
   },
-  DECREMENT_MAIN_COUNTER (state) {
-    state.main--
-  },
-  INCREMENT_MAIN_COUNTER (state) {
-    state.main++
-  }
-}
-
-const actions = {
-  someAsyncTask ({ commit }) {
-    // do something async
-    commit('INCREMENT_MAIN_COUNTER')
+  SET_IS_CONNECTED (state, isConnected) {
+    state.isConnected = isConnected
   }
 }
 
 export default {
   state,
-  mutations,
-  actions
+  mutations
 }
