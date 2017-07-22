@@ -12,25 +12,25 @@
       <nav-bar></nav-bar>
     </div>
     <div class="landing__right-column">
-      <component class="landing__right-column-component" :is="activePage"></component>
+      <transition name="fade" mode="out-in">
+        <component class="landing__right-column-component" :is="activePage"></component>
+      </transition>
       <status></status>
     </div>
+    <modal></modal>
   </div>
 </template>
 
 <script>
 export default {
+  mixins: require('./mixins.js'),
   components: {
     About: require('./About.vue'),
     Hosts: require('./Hosts.vue'),
+    Modal: require('./Modal.vue'),
     NavBar: require('./NavBar.vue'),
     Settings: require('./Settings.vue'),
     Status: require('./Status.vue')
-  },
-  computed: {
-    activePage () {
-      return this.$store.state.App.activePage
-    }
   }
 }
 </script>
@@ -78,5 +78,11 @@ export default {
   font-weight: 300;
   font-size: 1.15rem;
   text-align: center;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.35s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

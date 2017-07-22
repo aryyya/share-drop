@@ -1,12 +1,8 @@
 <template>
   <div class="status">
     <span class="status__hostname-wrapper">
-      <p class="status__hostname">
-        {{ shortenText(hostname, 32) }}
-      </p>
-      <p class="status__connection" :class="{ 'status__connection--online': isConnected }">
-        {{ isConnected ? 'online' : 'offline' }}
-      </p>
+      <p class="status__hostname">{{ shortenText(hostname, 32) }}</p>
+      <p class="status__connection" :class="{ 'status__connection--online': isConnected }">{{ isConnected ? 'connected to network' : 'not connected to network' }}</p>
     </span>
     <label class="status__invisible-mode-wrapper">
       <input class="status__invisible-mode-checkbox" type="checkbox" name="status__invisible-mode-checkbox" v-model="invisibleMode"> 
@@ -32,7 +28,15 @@ export default {
   methods: {
     help (event) {
       event.preventDefault()
-      window.alert('Enable the "hide on network" option to stay invisible to other ShareDrop users. You can still see and send files to other ShareDrop hosts on the network.')
+      const this_ = this
+      this.$store.commit('SET_MODAL_CONFIG', {
+        subText: 'Enable the "hide on network" option to stay invisible to other ShareDrop users. You can still see and send files to other ShareDrop hosts on the network.',
+        confirmText: 'Ok',
+        confirmCallback () {
+          this_.$store.commit('SET_SHOW_MODAL', false)
+        }
+      })
+      this.$store.commit('SET_SHOW_MODAL', true)
     }
   },
   created () {
@@ -69,6 +73,7 @@ export default {
 .status__invisible-mode-text {
   opacity: 0.75;
   margin-left: 0.25rem;
+  font-size: 0.95rem;
 }
 .status__invisible-mode-text:hover {
   cursor: pointer;

@@ -32,9 +32,19 @@ export default {
       this.$store.commit('SET_ACTIVE_PAGE', this.selected.name)
     },
     quit () {
-      if (window.confirm('Quit ShareDrop?')) {
-        require('electron').remote.getCurrentWindow().close()
-      }
+      const this_ = this
+      this.$store.commit('SET_MODAL_CONFIG', {
+        subText: 'Really quit ShareDrop?',
+        confirmText: 'Quit',
+        cancelText: 'Cancel',
+        confirmCallback () {
+          require('electron').remote.getCurrentWindow().close()
+        },
+        cancelCallback () {
+          this_.$store.commit('SET_SHOW_MODAL', false)
+        }
+      })
+      this.$store.commit('SET_SHOW_MODAL', true)
     }
   },
   created () {
@@ -49,17 +59,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: left;
-  // filter: brightness(0.65);
   box-shadow: inset -5px 0 9px -7px black;
 }
 .nav-bar__item--selected {
   background-color: #1F2433;
-  // filter: brightness(1);
 }
 .nav-bar__item:hover {
   cursor: pointer;
   background-color: #1F2433;
-  // filter: brightness(1);
 }
 .nav-bar__item-name {
   text-align: center;

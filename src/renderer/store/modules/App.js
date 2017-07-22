@@ -1,7 +1,16 @@
 const state = {
   activePage: '',
   hostname: '',
-  isConnected: false
+  isConnected: false,
+  showModal: false,
+  modalConfig: {
+    mainText: '',
+    subText: '',
+    confirmText: '',
+    cancelText: '',
+    confirmCallback: () => {},
+    cancelCallback: () => {}
+  }
 }
 
 const mutations = {
@@ -13,6 +22,12 @@ const mutations = {
   },
   SET_IS_CONNECTED (state, isConnected) {
     state.isConnected = isConnected
+  },
+  SET_SHOW_MODAL (state, showModal) {
+    state.showModal = showModal
+  },
+  SET_MODAL_CONFIG (state, modalConfig) {
+    state.modalConfig = modalConfig
   }
 }
 

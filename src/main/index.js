@@ -22,10 +22,10 @@ function createWindow () {
    */
   mainWindow = new BrowserWindow({
     height: 480,
-    useContentSize: true,
     width: 720,
     resizable: false,
-    frame: false
+    frame: false,
+    title: 'ShareDrop'
   })
 
   mainWindow.loadURL(winURL)

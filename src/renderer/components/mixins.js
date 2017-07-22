@@ -5,8 +5,17 @@ module.exports = [{
     }
   },
   computed: {
+    activePage () {
+      return this.$store.state.App.activePage
+    },
     isConnected () {
       return this.$store.state.App.isConnected
+    },
+    showModal () {
+      return this.$store.state.App.showModal
+    },
+    modalConfig () {
+      return this.$store.state.App.modalConfig
     }
   }
 }]
