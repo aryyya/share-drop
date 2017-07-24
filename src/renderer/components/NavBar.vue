@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  mixins: require('./mixins.js'),
   data () {
     return {
       items: [
@@ -33,18 +34,22 @@ export default {
     },
     quit () {
       const this_ = this
-      this.$store.commit('SET_MODAL_CONFIG', {
-        subText: 'Really quit ShareDrop?',
-        confirmText: 'Quit',
-        cancelText: 'Cancel',
-        confirmCallback () {
-          require('electron').remote.getCurrentWindow().close()
-        },
-        cancelCallback () {
-          this_.$store.commit('SET_SHOW_MODAL', false)
-        }
-      })
-      this.$store.commit('SET_SHOW_MODAL', true)
+      if (this.confirmOnQuit) {
+        this.$store.commit('SET_MODAL_CONFIG', {
+          subText: 'Really quit ShareDrop?',
+          confirmText: 'Quit',
+          cancelText: 'Cancel',
+          confirmCallback () {
+            require('electron').remote.getCurrentWindow().close()
+          },
+          cancelCallback () {
+            this_.$store.commit('SET_SHOW_MODAL', false)
+          }
+        })
+        this.$store.commit('SET_SHOW_MODAL', true)
+      } else {
+        require('electron').remote.getCurrentWindow().close()
+      }
     }
   },
   created () {

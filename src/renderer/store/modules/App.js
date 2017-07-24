@@ -10,7 +10,8 @@ const state = {
     cancelText: '',
     confirmCallback: () => {},
     cancelCallback: () => {}
-  }
+  },
+  confirmOnQuit: true
 }
 
 const mutations = {
@@ -28,6 +29,9 @@ const mutations = {
   },
   SET_MODAL_CONFIG (state, modalConfig) {
     state.modalConfig = modalConfig
+  },
+  SET_CONFIRM_ON_QUIT (state, confirmOnQuit) {
+    state.confirmOnQuit = confirmOnQuit
   }
 }
 

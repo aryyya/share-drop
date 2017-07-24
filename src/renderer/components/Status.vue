@@ -6,7 +6,7 @@
     </span>
     <label class="status__invisible-mode-wrapper">
       <input class="status__invisible-mode-checkbox" type="checkbox" name="status__invisible-mode-checkbox" v-model="invisibleMode"> 
-      <span class="status__invisible-mode-text" :class="{'status__invisible-mode-text--enabled': invisibleMode}">hide on network</span>
+      <span class="status__invisible-mode-text" :class="{'status__invisible-mode-text--enabled': invisibleMode}">Hide on network</span>
       <span class="status__invisible-mode-help" @click="help">?</span>
     </label>
   </div>
@@ -30,7 +30,7 @@ export default {
       event.preventDefault()
       const this_ = this
       this.$store.commit('SET_MODAL_CONFIG', {
-        subText: 'Enable the "hide on network" option to stay invisible to other ShareDrop users. You can still see and send files to other ShareDrop hosts on the network.',
+        subText: 'Enable the "Hide on network" option to stay invisible to other ShareDrop users. You can still see and send files to other ShareDrop hosts on the network.',
         confirmText: 'Ok',
         confirmCallback () {
           this_.$store.commit('SET_SHOW_MODAL', false)

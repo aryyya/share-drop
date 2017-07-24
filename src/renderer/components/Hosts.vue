@@ -12,12 +12,7 @@
 
 <script>
 export default {
-  mixins: require('./mixins.js'),
-  computed: {
-    hostname () {
-      return this.$store.state.App.hostname
-    }
-  }
+  mixins: require('./mixins.js')
 }
 </script>
 
